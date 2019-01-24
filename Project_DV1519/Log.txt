@@ -1,0 +1,45 @@
+20180228
+
+Skrev om hela game klassen för att bättre fungera med kompleteringen för projektet.
+Skapade en helt ny klass som för att hantera alla objekt i scenen. Gjorde även en ny klass
+som agerar basklass till alla de tidigare objekten i scenen som player och projectile. 
+
+Stötte på lite problem när jag försökte lista ut hur jag skulle kopiera subklasser
+i min manager klass för att kunna expandera arrayen. Lyckades till slut lösa detta genom
+att använda mig av en static_cast.
+
+----------------
+
+20180301
+
+La till all dom gamla klasserna i projektet och fixade så att dessa kunde målas upp på skärm.
+Game placerar nu ut alla objekt i scenen när init() körs. Dvs lägger till dom i Manager och sen
+sätter position i spelet. 
+
+Uppdaterade även så att spelaren nu uppdaters med tid istället för inputs. Flyttade även allt
+som har med movement att göra in i klassen istället för i main funktionen i game. 
+
+Började även med lägga tillbaka kollision i spelet och kollar nu endast mot rectangle shapes. 
+All collision check körs i Manager där den loopar igenom all entity objekt och kör deras collision funktion. 
+
+Behöver fixa så att collision funktionen fungerar bättre med de nya väggarna som endast består
+av rectangleshapes.
+
+--------------------------
+20180301
+
+Fixade collision klassen och all typ av kollision verkar nu fungera. Lade även till några random
+funktioner för projectiles som påverkar position, riktning och hastighet. Fixade även så att dessa
+kommer tillbaka in i fönstret när dom lämnar screen size.
+
+Återskapade den gamla funktionen att spelaren placeras på startposition efter collision med väggar
+eller projectiles. Detta sköts via en static bool som finns i header.h. 
+
+Nu saknas bara att lägga tillbaka menyn i projektet sant lägga till en in och utmatning för best time.
+
+--------------------------
+20180302
+
+Tog bort menyn helt då jag märkte att den använde sig av std::List, la istället in en intro klass som
+målar upp en bild i fönstret och väntar på valfri input. Skapade även en overlay klass som läser och sparar
+till text fil. Denna klass sparar även tiden för ditt senaste försök.  
